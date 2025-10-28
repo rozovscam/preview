@@ -3,39 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rozov — Telegram</title>
-  <meta name="description" content="Связаться в Telegram: @rozovscam" />
+  <title>Rozov Scam — Links</title>
+  <meta name="description" content="Все ссылки Rozov Scam: Telegram, VK, Discord, Twitch, osu!" />
 
-  <!-- Open Graph / Telegram / WhatsApp preview -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Rozov — Telegram" />
-  <meta property="og:description" content="Открой чат в Telegram: @rozovscam" />
+  <meta property="og:title" content="Rozov Scam — ссылки" />
+  <meta property="og:description" content="Связаться или подписаться: Telegram, VK, Discord, Twitch, osu!" />
   <meta property="og:url" content="https://t.me/rozovscam" />
-
-  <!-- Twitter card preview -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Rozov — Telegram" />
-  <meta name="twitter:description" content="Открой чат в Telegram: @rozovscam" />
-
   <meta name="theme-color" content="#229ED9" />
-
-  <!-- Minimal favicon as data URL (paper airplane) -->
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="64" fill="%23229ED9"/><path d="M27 126l199-76c12-4 22 8 15 19l-55 89a12 12 0 0 1-17 3l-46-34 68-52-89 45-58 19c-10 3-17-11-7-13z" fill="white"/></svg>' />
 
   <style>
     :root {
-      --bg-1: #0f172a; /* slate-900 */
-      --bg-2: #111827; /* gray-900 */
-      --accent: #229ED9; /* Telegram blue */
-      --text: #e5e7eb;  /* gray-200 */
-      --muted: #9ca3af; /* gray-400 */
+      --accent: #229ED9;
+      --bg-1: #0f172a;
+      --bg-2: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
       --ring: rgba(34,158,217,.45);
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    html, body { height: 100%; margin: 0; }
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       color: var(--text);
       background: radial-gradient(1200px 800px at 20% -10%, #1f2937 0%, transparent 60%),
                   radial-gradient(1000px 600px at 120% 10%, #0ea5e9 0%, transparent 40%),
@@ -55,102 +44,79 @@
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
       animation: fadeIn .6s ease both;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: #1f2937;
-      border: 1px solid rgba(255,255,255,.06);
-      margin-bottom: 16px;
-    }
-    .logo svg { width: 28px; height: 28px; }
+    @keyframes fadeIn { from {opacity:0;transform:translateY(8px);} to {opacity:1;transform:translateY(0);} }
     h1 {
-      font-size: clamp(24px, 3vw, 32px);
-      margin: 0 0 8px;
-      letter-spacing: .2px;
+      text-align: center;
+      font-size: clamp(26px, 4vw, 34px);
+      margin: 0 0 6px;
     }
     p {
-      margin: 0;
+      text-align: center;
       color: var(--muted);
-      line-height: 1.6;
+      margin: 0 0 24px;
     }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 22px;
-      padding: 14px 18px;
-      font-weight: 600;
-      text-decoration: none;
-      color: white;
-      background: var(--accent);
-      border-radius: 14px;
-      box-shadow: 0 6px 18px var(--ring);
-      border: 0;
-      transition: transform .12s ease, box-shadow .12s ease, filter .2s ease;
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px var(--ring); filter: brightness(1.02); }
-    .cta:active { transform: translateY(0); }
-    .linkline {
-      margin-top: 14px;
+    .link {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      font-size: .95rem;
-      color: var(--muted);
-      word-break: break-word;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      transition: transform .12s ease, box-shadow .12s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+      font-size: 15px;
     }
-    code {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 4px 8px;
-      border-radius: 10px;
-      color: #e5e7eb;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    .link:hover { transform: translateY(-2px); }
+    .tg   { background: var(--accent); box-shadow: 0 6px 18px var(--ring); }
+    .vk   { background: #0077ff; }
+    .ds   { background: #5865F2; }
+    .tgch { background: #2AABEE; }
+    .tw   { background: #9146FF; }
+    .osu  { background: #F15A24; } /* osu! orange */
+
+    .small-note {
+      display:block;
+      margin-top:8px;
+      color:#9ca3af;
+      font-size:13px;
     }
+
     footer {
+      text-align: center;
       margin-top: 18px;
-      font-size: .8rem;
+      font-size: .9rem;
       color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <div class="logo" aria-hidden="true">
-      <!-- Telegram logo (paper plane) -->
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M22 3L2.8 10.3c-.9.35-.86 1.64.05 1.94l4.9 1.65a1 1 0 0 0 1.03-.26l6.8-6.86c.24-.24.6.1.38.36l-5.65 6.47a1 1 0 0 0 .13 1.43l4.07 3.3c.66.54 1.66.25 1.92-.55L22.9 3.9C23.17 3.1 22.6 2.77 22 3Z" fill="white"/>
-      </svg>
+  <main class="card">
+    <h1>Rozov Scam</h1>
+    <p>Все ссылки и контакты ↓</p>
+
+    <div class="links">
+      <a class="link tg" href="https://t.me/rozovscam" target="_blank" rel="noopener">💬 Telegram</a>
+      <a class="link vk" href="https://vk.com/rozovscam" target="_blank" rel="noopener">VK — vk.com/rozovscam</a>
+      <a class="link ds" href="#" onclick="navigator.clipboard.writeText('rozovscam');alert('Ник rozovscam скопирован в буфер');return false;">Discord — rozovscam</a>
+      <a class="link tgch" href="https://t.me/rozov_scam" target="_blank" rel="noopener">📢 TG-канал Rozov Scam</a>
+      <a class="link tw" href="https://twitch.tv/rozovscam" target="_blank" rel="noopener">🎮 Twitch</a>
+      <a class="link osu" href="https://osu.ppy.sh/users/37066688" target="_blank" rel="noopener">osu! — профиль</a>
     </div>
 
-    <h1>Открой чат в&nbsp;Telegram</h1>
-    <p>Нажми на кнопку ниже, чтобы перейти к профилю <strong>@rozovscam</strong>.</p>
-
-    <a class="cta" href="https://t.me/rozovscam" target="_blank" rel="noopener noreferrer" aria-label="Открыть @rozovscam в Telegram">
-      Открыть в Telegram
-      <svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M5 10h8M10 5l5 5-5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-
-    <div class="linkline">
-      Прямая ссылка: <code>https://t.me/rozovscam</code>
-    </div>
-
-    <footer>© <span id="y"></span> Rozov. Сделано с любовью к пикселям.</footer>
+    <footer>
+      © <span id="y"></span> Rozov Scam<br>
+      <small style="color:#6b7280;">Фармила с Аризоны (32 / 02 / Центральный округ)</small>
+    </footer>
   </main>
 
-  <script>
-    // current year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
