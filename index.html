@@ -684,6 +684,100 @@
       color: var(--muted);
     }
 
+    .script-advanced {
+      margin: -6px 0 14px;
+      border-radius: 13px;
+      background: rgba(15,23,42,.24);
+      border: 1px solid rgba(255,255,255,.065);
+      overflow: hidden;
+    }
+
+    .script-advanced summary {
+      cursor: pointer;
+      padding: 10px;
+      color: #93c5fd;
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 900;
+      list-style: none;
+      user-select: none;
+    }
+
+    .script-advanced summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .script-advanced summary::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 7px;
+      color: #7dd3fc;
+      transition: transform .16s ease;
+    }
+
+    .script-advanced[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .script-advanced-body {
+      display: grid;
+      gap: 7px;
+      padding: 0 10px 10px;
+    }
+
+    .script-advanced-note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .script-command[data-tip] {
+      cursor: help;
+      position: relative;
+    }
+
+    .script-command[data-tip] code {
+      border-color: rgba(125,211,252,.32);
+    }
+
+    .command-tooltip {
+      position: fixed;
+      z-index: 999;
+      max-width: min(280px, calc(100vw - 24px));
+      padding: 10px 11px;
+      border-radius: 13px;
+      color: #e5f3ff;
+      background: rgba(15, 23, 42, .94);
+      border: 1px solid rgba(125,211,252,.22);
+      box-shadow: 0 14px 34px rgba(0,0,0,.38);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 750;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px) scale(.98);
+      transition: opacity .12s ease, transform .12s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .command-tooltip.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .command-tooltip::after {
+      content: "";
+      position: absolute;
+      left: var(--arrow-x, 24px);
+      bottom: -6px;
+      width: 10px;
+      height: 10px;
+      background: rgba(15, 23, 42, .94);
+      border-right: 1px solid rgba(125,211,252,.22);
+      border-bottom: 1px solid rgba(125,211,252,.22);
+      transform: rotate(45deg);
+    }
+
     .script-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1549,9 +1643,9 @@
           <div class="latest-box">
             <div>
               <div class="latest-label">Последнее добавленное</div>
-              <div class="latest-title">⛽ Быстрая заправка</div>
+              <div class="latest-title">📱 Фикс телефона Rodina</div>
             </div>
-            <a class="latest-link" href="https://t.me/rozov_scam/11789" target="_blank" rel="noopener">Открыть</a>
+            <a class="latest-link" href="https://t.me/rozov_scam/12592" target="_blank" rel="noopener">Открыть</a>
           </div>
         </div>
 
@@ -1768,6 +1862,55 @@
             </div>
           </article>
 
+
+          <article class="script-card" data-tags="rodina">
+            <div class="script-top">
+              <div class="script-icon">📱</div>
+              <div class="script-title-wrap">
+                <h3 class="script-name">Фикс телефона Rodina</h3>
+                <div class="script-tags">
+                  <span class="script-badge css-badge badge-rodina" role="img" aria-label="[Rodina]">[Rodina]</span>
+                </div>
+              </div>
+            </div>
+            <p class="script-desc">
+              Делит тяжёлые CEF-пакеты телефона Rodina на части, чтобы SMS, контакты и друзья нормально прогружались без зависаний.
+              Количество данных не режет: просто отправляет их порциями, с настройкой размера чанка и задержки.
+            </p>
+            <div class="script-commands">
+              <div class="script-commands-title">Активация</div>
+              <div class="script-command-list">
+                <span class="script-command"><code>/phonesplit</code> вкл/выкл</span>
+              </div>
+            </div>
+
+            <details class="script-advanced">
+              <summary>Настройка скрипта подробнее — лучше не трогать</summary>
+              <div class="script-advanced-body">
+                <div class="script-advanced-note">Команды для тонкой настройки, отдельных типов пакетов и дебага.</div>
+                <div class="script-command-list">
+                  <span class="script-command" tabindex="0" data-tip="Переключает способ выдачи пакетов: chunk-only отправляет части по отдельности, cumulative каждый раз наращивает список. По умолчанию лучше cumulative."><code>/phonesplitmode</code> режим чанков</span>
+                  <span class="script-command" tabindex="0" data-tip="Размер одной порции объектов. Меньше число — легче телефону, но дольше прогрузка. Если лагает, можно поставить 5–8."><code>/phonesplitchunk [число]</code> размер порции</span>
+                  <span class="script-command" tabindex="0" data-tip="Пауза между порциями в миллисекундах. Больше задержка — меньше шанс фризов, но список открывается медленнее."><code>/phonesplitdelay [мс]</code> задержка</span>
+                  <span class="script-command" tabindex="0" data-tip="Включает или выключает разделение списка SMS/чатов."><code>/phonesplitsms</code> SMS</span>
+                  <span class="script-command" tabindex="0" data-tip="Включает или выключает разделение контактов телефона."><code>/phonesplitcontacts</code> контакты</span>
+                  <span class="script-command" tabindex="0" data-tip="Включает или выключает разделение списка друзей."><code>/phonesplitfriends</code> друзья</span>
+                  <span class="script-command" tabindex="0" data-tip="Включает или выключает разделение приглашений в друзья. По умолчанию выключено."><code>/phonesplitinvites</code> инвайты</span>
+                  <span class="script-command" tabindex="0" data-tip="Обнуляет image у объектов. Может снизить вес пакетов, но аватарки/картинки могут пропасть."><code>/phonesplitavatars</code> обнулить аватарки</span>
+                  <span class="script-command" tabindex="0" data-tip="Очищает simCards у контактов/друзей. Нужно только если именно эти поля грузят телефон."><code>/phonesplitsimcards</code> очистить simCards</span>
+                  <span class="script-command" tabindex="0" data-tip="Показывает, какие разделы сейчас включены для сплита: SMS, контакты, друзья, инвайты."><code>/phonesplittargets</code> цели сплита</span>
+                  <span class="script-command" tabindex="0" data-tip="Показывает статистику работы: сколько пакетов увидел, сколько разделил, последний размер и ошибки парса."><code>/phonesplitstats</code> статистика</span>
+                  <span class="script-command" tabindex="0" data-tip="Дебаг сырых телефонных пакетов. Включать только для поиска проблемы, может спамить в чат."><code>/phonesplitraw</code> raw-дебаг</span>
+                  <span class="script-command" tabindex="0" data-tip="Дебаг содержимого payload при ошибке парса. Нужен только для диагностики странных пакетов."><code>/phonesplitpayload</code> payload-дебаг</span>
+                  <span class="script-command" tabindex="0" data-tip="Включает или выключает обычные лог-сообщения PhoneSplit в чат."><code>/phonesplitlog</code> лог</span>
+                </div>
+              </div>
+            </details>
+            <div class="script-actions">
+              <a class="script-link" href="https://t.me/rozov_scam/12592" target="_blank" rel="noopener">Открыть</a>
+            </div>
+          </article>
+
           <article class="script-card" data-tags="arizona rodina paid thirdparty">
             <div class="script-top">
               <div class="script-icon">⛺</div>
@@ -1976,7 +2119,7 @@
           <div>
             <div class="music-title">Музыка на сайте</div>
             <div class="music-subtitle" id="musicStatus">Выключена — можно включить вручную</div>
-            <a class="music-full-link" href="https://youtu.be/MQssmhzxxAw?si=hK4paZhcZx4an0ty" target="_blank" rel="noopener">Что это?</a>
+            <a class="music-full-link" href="https://www.youtube.com/watch?v=MQssmhzxxAw&list=RDMQssmhzxxAw&start_radio=1" target="_blank" rel="noopener">Что это?</a>
           </div>
           <button class="music-btn" id="musicBtn" type="button">🎵 Включить</button>
         </div>
@@ -2251,6 +2394,69 @@
         });
       });
     }
+
+    const commandTooltip = document.createElement('div');
+    commandTooltip.className = 'command-tooltip';
+    commandTooltip.setAttribute('role', 'tooltip');
+    document.body.appendChild(commandTooltip);
+
+    let commandTooltipTimer = null;
+
+    function positionCommandTooltip(target) {
+      const rect = target.getBoundingClientRect();
+      const tooltipRect = commandTooltip.getBoundingClientRect();
+      const gap = 10;
+
+      let left = rect.left + rect.width / 2 - tooltipRect.width / 2;
+      left = Math.max(12, Math.min(left, window.innerWidth - tooltipRect.width - 12));
+
+      let top = rect.top - tooltipRect.height - gap;
+      let arrowX = rect.left + rect.width / 2 - left - 5;
+
+      if (top < 12) {
+        top = rect.bottom + gap;
+        commandTooltip.style.setProperty('--arrow-x', Math.max(16, Math.min(arrowX, tooltipRect.width - 26)) + 'px');
+        commandTooltip.style.setProperty('--arrow-bottom', 'auto');
+      } else {
+        commandTooltip.style.setProperty('--arrow-x', Math.max(16, Math.min(arrowX, tooltipRect.width - 26)) + 'px');
+      }
+
+      commandTooltip.style.left = left + 'px';
+      commandTooltip.style.top = top + 'px';
+    }
+
+    function showCommandTooltip(target) {
+      const text = target.dataset.tip;
+      if (!text) return;
+
+      clearTimeout(commandTooltipTimer);
+      commandTooltip.textContent = text;
+      commandTooltip.classList.add('show');
+
+      requestAnimationFrame(() => positionCommandTooltip(target));
+    }
+
+    function hideCommandTooltip(delay = 60) {
+      clearTimeout(commandTooltipTimer);
+      commandTooltipTimer = setTimeout(() => {
+        commandTooltip.classList.remove('show');
+      }, delay);
+    }
+
+    document.querySelectorAll('.script-command[data-tip]').forEach((item) => {
+      item.addEventListener('mouseenter', () => showCommandTooltip(item));
+      item.addEventListener('mouseleave', () => hideCommandTooltip());
+      item.addEventListener('focus', () => showCommandTooltip(item));
+      item.addEventListener('blur', () => hideCommandTooltip());
+
+      item.addEventListener('touchstart', () => {
+        showCommandTooltip(item);
+        hideCommandTooltip(2600);
+      }, { passive: true });
+    });
+
+    window.addEventListener('scroll', () => hideCommandTooltip(0), { passive: true });
+    window.addEventListener('resize', () => hideCommandTooltip(0));
 
     const copyRefCode = document.getElementById('copyRefCode');
     if (copyRefCode) {
