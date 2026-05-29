@@ -778,6 +778,72 @@
       transform: rotate(45deg);
     }
 
+    .script-changelog {
+      margin: -6px 0 14px;
+      border-radius: 13px;
+      background: rgba(15,23,42,.24);
+      border: 1px solid rgba(255,255,255,.065);
+      overflow: hidden;
+    }
+
+    .script-changelog summary {
+      cursor: pointer;
+      padding: 10px;
+      color: #93c5fd;
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 900;
+      list-style: none;
+      user-select: none;
+    }
+
+    .script-changelog summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .script-changelog summary::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 7px;
+      color: #7dd3fc;
+      transition: transform .16s ease;
+    }
+
+    .script-changelog[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .script-changelog-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0 10px 10px;
+      list-style: none;
+    }
+
+    .script-changelog-item {
+      display: grid;
+      gap: 3px;
+      padding: 9px;
+      border-radius: 11px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .script-changelog-date {
+      color: #7dd3fc;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .035em;
+    }
+
+    .script-changelog-text {
+      color: #dbeafe;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
     .script-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1828,11 +1894,24 @@
             <p class="script-desc">Автоматически открывает меню фермера, забирает лут со склада, не трогает воду для грядок, доливает воду фермеру и может снова включить его после отдыха.</p>
 
             <div class="script-commands">
-              <div class="script-commands-title">Команды</div>
+              <div class="script-commands-title">Активация</div>
               <div class="script-command-list">
                 <span class="script-command"><code>/farmergrab</code> вкл/выкл</span>
+                <span class="script-command"><code>/setfarmer [0-400]</code> цель воды</span>
               </div>
             </div>
+            <details class="script-changelog">
+              <summary>История изменений и фиксы</summary>
+              <ul class="script-changelog-list">
+                <li class="script-changelog-item">
+                  <div class="script-changelog-date">29.05.2026</div>
+                  <div class="script-changelog-text">
+                    Адаптирован под последнее обновление Arizona: обновлены ID диалогов фермера, склада, забора ресурсов и долива воды.
+                    Также добавлена настройка цели воды через /setfarmer, чтобы держать у фермера нужное значение от 0 до 400.
+                  </div>
+                </li>
+              </ul>
+            </details>
             <div class="script-actions">
               <a class="script-link" href="https://t.me/rozov_scam/12397" target="_blank" rel="noopener">Открыть</a>
             </div>
