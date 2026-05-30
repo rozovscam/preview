@@ -830,15 +830,43 @@
       border: 1px solid rgba(255,255,255,.06);
     }
 
+    .script-changelog-date-entry {
+      display: grid;
+      gap: 0;
+    }
+
     .script-changelog-date {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+      cursor: pointer;
       color: #7dd3fc;
       font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: .035em;
+      list-style: none;
+      user-select: none;
+    }
+
+    .script-changelog-date::-webkit-details-marker {
+      display: none;
+    }
+
+    .script-changelog-date::before {
+      content: "▸";
+      display: inline-block;
+      color: #7dd3fc;
+      transition: transform .16s ease;
+    }
+
+    .script-changelog-date-entry[open] .script-changelog-date::before {
+      transform: rotate(90deg);
     }
 
     .script-changelog-text {
+      margin-top: 8px;
       color: #dbeafe;
       font-size: 12px;
       line-height: 1.45;
@@ -1262,90 +1290,6 @@
       font-weight: 900;
     }
 
-    .music-box {
-      margin-top: 16px;
-      display: grid;
-      gap: 10px;
-      padding: 13px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.055);
-      border: 1px solid rgba(255,255,255,.09);
-    }
-
-    .music-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .music-title {
-      font-size: 14px;
-      color: var(--text);
-      font-weight: 800;
-    }
-
-    .music-subtitle {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-
-    .music-full-link {
-      display: inline-flex;
-      width: fit-content;
-      margin-top: 5px;
-      color: #7dd3fc;
-      font-size: 12px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: color .12s ease, opacity .12s ease;
-    }
-
-    .music-full-link:hover {
-      color: #bae6fd;
-      text-decoration: underline;
-    }
-
-    .music-btn {
-      border: 0;
-      cursor: pointer;
-      color: #fff;
-      font-weight: 800;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #22c55e, #0ea5e9);
-      box-shadow: 0 6px 18px rgba(14,165,233,.25);
-      transition: transform .12s ease, opacity .12s ease;
-      white-space: nowrap;
-    }
-
-    .music-btn:hover { transform: translateY(-2px) scale(1.02); }
-    .music-btn.is-playing {
-      background: linear-gradient(135deg, #ef4444, #f97316);
-      animation: musicPulse 1.5s ease-in-out infinite;
-    }
-
-    .volume-label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      color: #cbd5e1;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .volume-value {
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .volume {
-      width: 100%;
-      accent-color: var(--accent);
-    }
-
     footer {
       text-align: center;
       margin-top: 18px;
@@ -1468,11 +1412,6 @@
       50% { transform: translateY(-2px); }
     }
 
-    @keyframes musicPulse {
-      0%, 100% { box-shadow: 0 6px 18px rgba(249,115,22,.25); }
-      50% { box-shadow: 0 8px 26px rgba(249,115,22,.48); }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -1485,8 +1424,6 @@
     }
 
     @media (max-width: 768px), (hover: none) and (pointer: coarse) {
-      .music-box { display: none; }
-
       body::before,
       body::after {
         animation: none !important;
@@ -1496,10 +1433,6 @@
       .tab-panel,
       .script-card,
       .script-icon,
-      .music-btn.is-playing {
-        animation: none !important;
-      }
-
       .link::before,
       .script-card::before {
         display: none !important;
@@ -1821,6 +1754,25 @@
                 <span class="script-command"><span class="script-command-muted">Открыть меню ARIZONA RENT в телефоне</span></span>
               </div>
             </div>
+            <details class="script-changelog">
+              <summary>История изменений и фиксы</summary>
+              <ul class="script-changelog-list">
+                <li class="script-changelog-item">
+                  <details class="script-changelog-date-entry">
+                    <summary class="script-changelog-date">30.05.2026</summary>
+                    <div class="script-changelog-text">
+                    — Скрипт актуализирован под последнее обновление<br>
+                    — Для каждого аккаунта и сервера теперь сохраняется свой отдельный список домов <span class="script-command-muted">(moonloader\config\AutoARZRent)</span><br>
+                    — Добавлена поддержка Vice City: деньги теперь красиво отображаются как VC$ <span class="script-command-muted">(лимиты на сдачу я ещё не знаю, но чекну как включат ВС и если они отличаются — отредачу)</span><br>
+                    — Описание объявления теперь ограничено 65 символами, чтобы не было проблем при публикации.<br>
+                    — Добавлена кнопка для быстрой установки аренды на 719–720 часов сразу и быстрого включения и выключения во всех домах.<br>
+                    — В списке домов теперь сразу видно, опубликован дом или нет без включения дебага.<br>
+                    — Обновлён внешний вид меню.
+                    </div>
+                  </details>
+                </li>
+              </ul>
+            </details>
             <div class="script-actions">
               <a class="script-link" href="https://t.me/rozov_scam/12109" target="_blank" rel="noopener">Открыть</a>
             </div>
@@ -1904,11 +1856,13 @@
               <summary>История изменений и фиксы</summary>
               <ul class="script-changelog-list">
                 <li class="script-changelog-item">
-                  <div class="script-changelog-date">29.05.2026</div>
-                  <div class="script-changelog-text">
+                  <details class="script-changelog-date-entry">
+                    <summary class="script-changelog-date">29.05.2026</summary>
+                    <div class="script-changelog-text">
                     Адаптирован под последнее обновление Arizona: обновлены ID диалогов фермера, склада, забора ресурсов и долива воды.
                     Также добавлена настройка цели воды через /setfarmer, чтобы держать у фермера нужное значение от 0 до 400.
-                  </div>
+                    </div>
+                  </details>
                 </li>
               </ul>
             </details>
@@ -2193,25 +2147,6 @@
         </div>
       </section>
 
-      <div class="music-box" id="musicBox" aria-label="Музыка на сайте">
-        <div class="music-row">
-          <div>
-            <div class="music-title">Музыка на сайте</div>
-            <div class="music-subtitle" id="musicStatus">Выключена — можно включить вручную</div>
-            <a class="music-full-link" href="https://www.youtube.com/watch?v=MQssmhzxxAw&list=RDMQssmhzxxAw&start_radio=1" target="_blank" rel="noopener">Что это?</a>
-          </div>
-          <button class="music-btn" id="musicBtn" type="button">🎵 Включить</button>
-        </div>
-
-        <label class="volume-label" for="volume">
-          <span>Громкость музыки на сайте</span>
-          <span class="volume-value" id="volumeValue">35%</span>
-        </label>
-        <input class="volume" id="volume" type="range" min="0" max="100" value="35" aria-label="Громкость музыки на сайте">
-      </div>
-
-      <audio id="bgMusic" loop preload="auto" autoplay></audio>
-
       <footer>
         © <span id="y"></span> Rozov Scam<br>
         <small style="color:#6b7280;">Фармила с Аризоны (32 / 02 / Центральный округ)</small>
@@ -2275,7 +2210,6 @@
     updateAge();
     setInterval(updateAge, 60 * 1000);
 
-    const MUSIC_URL = 'https://rozovscam.s-ul.eu/2ZiiLMOh';
 
     const isMobileDevice = () => {
       const ua = navigator.userAgent || navigator.vendor || window.opera || '';
@@ -2560,66 +2494,6 @@
       }
     });
 
-    const musicBox = document.getElementById('musicBox');
-    const music = document.getElementById('bgMusic');
-    const musicBtn = document.getElementById('musicBtn');
-    const musicStatus = document.getElementById('musicStatus');
-    const volume = document.getElementById('volume');
-    const volumeValue = document.getElementById('volumeValue');
-
-    const updateMusicButton = () => {
-      if (music.paused) {
-        musicBtn.textContent = '🎵 Включить';
-        musicBtn.classList.remove('is-playing');
-      } else {
-        musicBtn.textContent = '⏸ Выключить';
-        musicBtn.classList.add('is-playing');
-      }
-    };
-
-    const tryPlayMusic = async (fromClick) => {
-      try {
-        await music.play();
-        musicStatus.textContent = 'Музыка включена';
-        updateMusicButton();
-      } catch (e) {
-        musicStatus.textContent = 'Не удалось включить музыку. Проверь ссылку на MP3';
-        updateMusicButton();
-      }
-    };
-
-    if (isMobileDevice()) {
-      musicBox.remove();
-      music.removeAttribute('src');
-      music.load();
-    } else {
-      music.src = MUSIC_URL;
-      music.volume = Number(volume.value) / 100;
-      music.autoplay = false;
-      music.muted = false;
-      musicStatus.textContent = 'Выключена — можно включить вручную';
-
-      volume.addEventListener('input', () => {
-        const nextVolume = Number(volume.value);
-        music.volume = nextVolume / 100;
-        volumeValue.textContent = nextVolume + '%';
-      });
-
-      music.addEventListener('play', updateMusicButton);
-      music.addEventListener('pause', updateMusicButton);
-
-      musicBtn.addEventListener('click', async () => {
-        if (music.paused) {
-          await tryPlayMusic(true);
-        } else {
-          music.pause();
-          musicStatus.textContent = 'Музыка выключена';
-          updateMusicButton();
-        }
-      });
-
-      updateMusicButton();
-    }
   </script>
 </body>
 </html>
