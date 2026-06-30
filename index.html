@@ -872,6 +872,11 @@
       line-height: 1.45;
     }
 
+    .script-changelog-thanks {
+      color: #60a5fa;
+      font-weight: 800;
+    }
+
     .script-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1768,8 +1773,8 @@
               </div>
             </div>
             <p class="script-desc">
-              Публикует дома и квартиры в Arizona Rent очередью: берёт список объектов из CEF, сохраняет настройки по каждому дому,
-              даёт выбрать тип сдачи, часы, цену и описание, после чего сам отправляет публикации и подтверждает диалоги.
+              Публикует дома и квартиры в Arizona Rent очередью, сохраняет настройки по каждому дому и автоматически подтверждает публикации.
+              Также умеет поднимать одно объявление или все опубликованные дома сразу.
             </p>
 
             <div class="script-commands">
@@ -1781,6 +1786,17 @@
             <details class="script-changelog">
               <summary>История изменений и фиксы</summary>
               <ul class="script-changelog-list">
+                <li class="script-changelog-item">
+                  <details class="script-changelog-date-entry">
+                    <summary class="script-changelog-date">01.07.2026</summary>
+                    <div class="script-changelog-text">
+                    — Добавлено полуавтоматическое поднятие опубликованных объявлений по кнопке.
+                    <span class="script-changelog-thanks">Спасибо bfix за основу логики поднятия.</span><br>
+                    — Можно поднять конкретный дом кнопкой в его настройках или запустить поднятие всех опубликованных сразу.<br>
+                    — Добавлена отдельная кнопка остановки поднятия; при сообщении о нехватке средств очередь прекращается.
+                    </div>
+                  </details>
+                </li>
                 <li class="script-changelog-item">
                   <details class="script-changelog-date-entry">
                     <summary class="script-changelog-date">12.06.2026</summary>
